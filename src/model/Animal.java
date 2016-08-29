@@ -1,11 +1,18 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-public class Animal {
+@Entity
+public class Animal implements Serializable {
+ 
+	private static final long serialVersionUID = 6612152577260596832L;
 	private String raca;
 	private String familia;
+	@Id
 	private String registro;
 	private int peso;
 	private int comprimento;
@@ -106,6 +113,14 @@ public class Animal {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [raca=" + raca + ", familia=" + familia + ", registro=" + registro + ", peso=" + peso
+				+ ", comprimento=" + comprimento + ", altura=" + altura + ", dataNascimento=" + dataNascimento
+				+ ", corPelo=" + corPelo + ", possuiCauda=" + possuiCauda + ", descricao=" + descricao + ", foto="
+				+ foto + "]";
 	}
 
 	
