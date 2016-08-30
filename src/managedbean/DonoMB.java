@@ -3,7 +3,9 @@ package managedbean;
 import java.util.ArrayList;
 
 import javax.annotation.ManagedBean;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import model.Dono;
 
@@ -15,7 +17,7 @@ public class DonoMB {
 	private ArrayList<Dono> donos;
 	
 	public DonoMB() {
-		
+		dono = new Dono();
 	}
 	
 	public Dono getDono() {
@@ -25,6 +27,10 @@ public class DonoMB {
 		this.dono = dono;
 	}
 	
-	
+	 public void saveMessage() {
+	        FacesContext context = FacesContext.getCurrentInstance();
+	         
+	        context.addMessage(null, new FacesMessage("Successful",  "Your message: " + dono) );
+	    }	
 
 }
